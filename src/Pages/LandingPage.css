@@ -1,0 +1,211 @@
+h1{
+    font-size: 56px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar, .parallax::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  body, .parallax {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .wrapper{
+    background-color: black;
+  }
+
+.page-container{
+    height: 100vh;
+    color: white;
+}
+
+.parallax {
+    height: 500px; /* fallback for older browsers */
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+  }
+
+  .parallax__group {
+    position: relative;
+    height: 500px; /* fallback for older browsers */
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    pointer-events: none;
+  }
+
+  .parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .parallax__group {
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+  }
+
+  .parallax__layer--base {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0) translateY(-80px);
+    z-index: 4;
+  }
+
+  .parallax__layer--back {
+    -webkit-transform: translateZ(-300px) scale(2);
+    transform: translateZ(-300px) scale(2);
+    z-index: 3;
+  }
+
+
+:root {
+    --clr-neon: rgb(255, 255, 255);
+    --clr-bg: rgb(0, 0, 0);
+}
+  
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+  
+.neon-button {
+    margin-top: 20px;
+    font-size: 38px;  
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-neon);
+    border: var(--clr-neon) 0.125em solid;
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+    position: relative;
+    pointer-events: all;
+  }
+  
+.neon-button::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: var(--clr-neon);
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1em);
+    opacity: 0.7;
+  }
+  
+  .neon-button::after {
+    content: "Start!";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.5em var(--clr-neon);
+    opacity: 0;
+    background-color: var(--clr-neon);
+    transition: opacity 100ms linear;
+  }
+
+  .neon-button:hover{
+      background-color: white;
+  }
+  
+  .neon-button:hover,
+  .neon-button:focus {
+    color: var(--clr-bg);
+    text-shadow: none;
+  }
+  
+  .neon-button:hover::before,
+  .neon-button:focus::before {
+    opacity: 1;
+  }
+  .neon-button:hover::after,
+  .neon-button:focus::after {
+    opacity: 1;
+  }
+
+.info-section{
+    height: 100vh;
+    padding: 40px;
+    transform: translateY(200px);
+    display: grid;
+    grid-template-areas: 
+        "title title"
+        "content statistics"
+        "button statistics";
+    grid-template-columns: 40vw 60vw;
+}
+
+.info-section-title{
+    grid-area: title;
+    font-size: 38px;
+}
+
+.info-section-content{
+    grid-area: content;
+    padding-right: 1em;
+}
+
+.info-section-statistics{
+    grid-area: statistics;
+    display: grid;
+    grid-template-areas: 
+        "statistics-ai statistics-humans"
+        "subtitle subtitle";
+    grid-template-columns: 50%;
+}
+
+.info-section-statistics h3{
+    grid-area: subtitle;
+    text-align: center;
+    font-size: 30px;
+}
+
+.info-section-statistics h4{
+    text-align: center;
+}
+
+.info-section-statistics-ai{
+    grid-area: statistics-ai;
+}
+
+.info-section-statistics-humans{
+    grid-area: statistics-humans;
+}
+
+.info-section-statistics .icon{
+    display: flex;
+    max-height: 40vh;
+    margin: auto;
+}
+
+.info-section-button{
+    grid-area: button;
+    margin: auto;
+    background: none;
+}
+
+.info-section-button:hover{
+    background-color: white;
+}

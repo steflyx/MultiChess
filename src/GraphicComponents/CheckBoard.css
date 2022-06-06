@@ -1,0 +1,17 @@
+.checkboard{
+    width: 80%;
+    max-width: 85vh;
+    height: 0;
+    /*padding-bottom: 80%;*/
+    display: grid;
+    box-sizing: content-box;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.checkboard.small{
+    width: 25%;
+    min-width: 200px;
+    padding-bottom: 30%;
+    margin: 10px;
+}
+

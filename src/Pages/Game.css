@@ -1,0 +1,29 @@
+.page-wrapper{
+    background-color: black;
+    min-height: 100vh;
+}
+
+.game-wrapper{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.checkboard-container{
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-container{
+    grid-column: 2;
+}
+
+.votes-container{
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
